@@ -144,8 +144,8 @@ const Quiz = () => {
                 data-testid={`likert-option-${value}`}
                 className={`flex-1 h-16 md:h-20 rounded-2xl font-bold text-xl md:text-2xl transition-all duration-300 ${
                   answers[question.id] === value
-                    ? 'bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-xl scale-110'
-                    : 'bg-white text-gray-800 hover:bg-pink-50 shadow-md'
+                    ? 'bg-gradient-to-r from-pink-600 to-purple-700 text-white shadow-xl scale-110 ring-4 ring-pink-300'
+                    : 'bg-white text-gray-800 hover:bg-pink-400 hover:text-white hover:scale-105 shadow-md'
                 }`}
               >
                 {value}
