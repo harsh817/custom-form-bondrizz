@@ -35,88 +35,31 @@ export const quizQuestions = [
     id: 'q2',
     number: 2,
     question: "Which platform do you use most?",
-    type: 'card',
-    options: [
-      {
-        text: "Tinder",
-        image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&h=300&fit=crop",
-        value: "Tinder"
-      },
-      {
-        text: "Bumble",
-        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop",
-        value: "Bumble"
-      },
-      {
-        text: "Hinge",
-        image: "https://images.unsplash.com/photo-1520333789090-1afc82db536a?w=400&h=300&fit=crop",
-        value: "Hinge"
-      },
-      {
-        text: "Instagram DMs",
-        image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=300&fit=crop",
-        value: "Instagram DMs"
-      }
-    ]
+    type: 'simple',
+    options: ['Tinder', 'Bumble', 'Hinge', 'Instagram DMs', 'Other']
   },
   {
     id: 'q3',
     number: 3,
     question: "How often do you message matches?",
-    type: 'card',
+    type: 'simple',
     options: [
-      {
-        text: "Daily",
-        subtext: "Very active",
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-        value: 'Daily'
-      },
-      {
-        text: "Few times a week",
-        subtext: "Moderately active",
-        image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=300&fit=crop",
-        value: 'Few times a week'
-      },
-      {
-        text: "Rarely",
-        subtext: "Not very active",
-        image: "https://images.unsplash.com/photo-1541692641319-981cc79ee10a?w=400&h=300&fit=crop",
-        value: 'Rarely'
-      },
-      {
-        text: "Wait for them",
-        subtext: "To message first",
-        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=300&fit=crop",
-        value: 'I wait for them to message first'
-      }
+      'Daily',
+      'Few times a week',
+      'Rarely',
+      'I wait for them to message first'
     ]
   },
   {
     id: 'q4',
     number: 4,
-    question: "What are you looking for?",
-    type: 'card',
+    question: "What's your primary goal?",
+    type: 'simple',
     options: [
-      {
-        text: "Committed relationship",
-        image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&h=300&fit=crop",
-        value: 'Serious relationship'
-      },
-      {
-        text: "Casual dating and fun",
-        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop",
-        value: 'Casual dating'
-      },
-      {
-        text: "Just hooking up",
-        image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=400&h=300&fit=crop",
-        value: 'Just hooking up'
-      },
-      {
-        text: "Still figuring it out",
-        image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=300&fit=crop",
-        value: 'Not sure yet'
-      }
+      'Casual dating',
+      'Serious relationship',
+      'Just hooking up',
+      'Not sure yet'
     ]
   },
   {
