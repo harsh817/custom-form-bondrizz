@@ -67,7 +67,7 @@ const Loading = () => {
       clearInterval(stepInterval);
       clearTimeout(navigateTimeout);
     };
-  }, [navigate]);
+  }, [navigate, steps.length]);
 
   return (
     <div className="min-h-screen bg-[#050505] flex items-center justify-center px-6 relative overflow-hidden">
