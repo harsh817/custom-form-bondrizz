@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Confetti from 'react-confetti';
 import { useWindowSize } from '../hooks/useWindowSize';
 import { Button } from '../components/ui/button';
-import { Check, Mail, BookOpen, Users } from 'lucide-react';
+import { Check, Mail, BookOpen, Users, Sparkles } from 'lucide-react';
 
 const Success = () => {
   const { width, height } = useWindowSize();
