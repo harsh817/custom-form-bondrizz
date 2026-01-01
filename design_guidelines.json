@@ -1,0 +1,145 @@
+{
+  "identity": {
+    "name": "Bond Rizz",
+    "tone": "Confident, Playful, Scientific, Exclusive",
+    "archetype": "Electric & Neon (Archetype 2) + Jewel & Luxury (Archetype 5)",
+    "target_audience": "Young Indian Men (18-35) seeking dating success"
+  },
+  "typography": {
+    "headings": {
+      "family": "Outfit, sans-serif",
+      "weights": ["600", "700", "800"],
+      "usage": "Main headlines, section titles, impact numbers"
+    },
+    "body": {
+      "family": "Manrope, sans-serif",
+      "weights": ["400", "500", "600"],
+      "usage": "Paragraphs, UI elements, data labels"
+    },
+    "mono": {
+      "family": "JetBrains Mono, monospace",
+      "usage": "Code snippets, technical stats, 'Rizz Score' numbers"
+    }
+  },
+  "colors": {
+    "mode": "dark",
+    "palette": {
+      "background": "#050505",
+      "surface": "#0F0F11",
+      "surface_highlight": "#18181B",
+      "primary": "#8B5CF6",
+      "primary_gradient": "linear-grad(135deg, #8B5CF6 0%, #D946EF 100%)",
+      "secondary": "#10B981",
+      "accent": "#F43F5E",
+      "warning": "#F59E0B",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "#A1A1AA",
+      "border": "rgba(255, 255, 255, 0.1)"
+    },
+    "gradients": {
+      "hero_glow": "radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.3) 0%, rgba(5, 5, 5, 0) 70%)",
+      "card_border": "linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(255,255,255,0.05))",
+      "button_primary": "linear-gradient(90deg, #8B5CF6 0%, #D946EF 100%)"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": {
+      "strategy": "Crystal Glass",
+      "classes": "bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl"
+    },
+    "shadows": {
+      "glow": "0 0 20px rgba(139, 92, 246, 0.3)",
+      "card": "0 8px 32px rgba(0, 0, 0, 0.4)"
+    },
+    "borders": {
+      "radius": "rounded-2xl",
+      "width": "border"
+    }
+  },
+  "layout_strategies": {
+    "quiz_container": {
+      "type": "Focus Mode",
+      "structure": "max-w-md mx-auto min-h-screen flex flex-col justify-center p-6 relative overflow-hidden"
+    },
+    "sales_page": {
+      "type": "Tetris Grid (Mode A)",
+      "structure": "grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 p-4 md:p-8"
+    },
+    "spacing": {
+      "section_gap": "py-24 md:py-32",
+      "element_gap": "gap-6"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-bold py-4 px-8 rounded-full shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:shadow-[0_0_30px_rgba(139,92,246,0.6)] transition-all hover:scale-105 active:scale-95",
+      "secondary": "bg-white/10 text-white font-semibold py-3 px-6 rounded-full hover:bg-white/20 transition-all border border-white/10"
+    },
+    "cards": {
+      "feature": "bg-zinc-900/50 border border-white/10 rounded-2xl p-8 hover:border-violet-500/50 transition-colors group",
+      "pricing": "relative overflow-hidden bg-zinc-900 border border-white/10 rounded-3xl p-8 flex flex-col hover:border-fuchsia-500 transition-all"
+    },
+    "inputs": {
+      "text": "bg-zinc-900/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-violet-500 focus:border-transparent outline-none transition-all placeholder:text-zinc-600"
+    },
+    "progress_bar": {
+      "container": "h-2 bg-zinc-800 rounded-full overflow-hidden",
+      "fill": "h-full bg-gradient-to-r from-violet-500 to-fuchsia-500 transition-all duration-500 ease-out"
+    }
+  },
+  "motion": {
+    "library": "framer-motion",
+    "transitions": {
+      "default": { "type": "spring", "stiffness": 300, "damping": 30 },
+      "page_transition": { "duration": 0.5, "ease": "easeInOut" }
+    },
+    "animations": {
+      "fade_in_up": {
+        "initial": { "opacity": 0, "y": 20 },
+        "animate": { "opacity": 1, "y": 0 }
+      },
+      "scale_in": {
+        "initial": { "opacity": 0, "scale": 0.9 },
+        "animate": { "opacity": 1, "scale": 1 }
+      },
+      "checklist_item": {
+        "initial": { "opacity": 0, "x": -20 },
+        "animate": { "opacity": 1, "x": 0 }
+      }
+    }
+  },
+  "image_urls": {
+    "hero_bg": "https://images.unsplash.com/photo-1547336784-331eea969948?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "success_couple": "https://images.unsplash.com/photo-1641640617955-d26b507a39aa?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "confident_man": "https://images.pexels.com/photos/1996930/pexels-photo-1996930.jpeg",
+    "party_vibe": "https://images.unsplash.com/photo-1763322564752-12ce8fae2bfe?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "trust_badges": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UPI-Logo-vector.svg/2560px-UPI-Logo-vector.svg.png",
+      "https://cdn-icons-png.flaticon.com/512/4436/4436481.png"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "INSTALL: npm install framer-motion react-confetti recharts @radix-ui/react-progress",
+    "SETUP: Ensure 'Outfit' and 'Manrope' fonts are imported in index.css via Google Fonts.",
+    "THEME: Force Dark Mode. Do not implement a light mode toggle. The brand is 'Nightlife/Exclusive'.",
+    "QUIZ LOGIC: Use a state machine pattern for the 18 questions. Store answers in a context or Zustand store.",
+    "LOADING SCREEN: This is a critical psychological step. It must last exactly 15 seconds. Show a checklist of 'Analyzing Rizz...', 'Calculating Persona...', 'Detecting Red Flags...'.",
+    "DIAGNOSTIC PAGE: This is the sales page. It must be personalized. If they answered 'Shy', show 'The Silent Observer' persona. If 'Aggressive', show 'The Over-Eager' persona.",
+    "PAYMENT: Mock the Instamojo button. On click, open a Shadcn Dialog with a fake credit card form or UPI QR code, then redirect to Success.",
+    "TRAPS: Implement 'Psychological Traps' as modal overlays that appear randomly during the quiz (e.g., 'Wait! 83% of men fail this next question...').",
+    "TESTING: Add data-testid to all buttons (e.g., 'quiz-option-1', 'submit-email', 'buy-now-btn')."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms.",
+    "You MUST NOT center align the app container.",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations.",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠 etc for icons.",
+    "Every interaction needs micro-animations.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary."
+  ]
+}
