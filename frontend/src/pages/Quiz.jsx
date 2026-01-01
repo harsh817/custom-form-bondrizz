@@ -23,7 +23,6 @@ const Quiz = () => {
     const newAnswers = { ...answers, [question.id]: answer };
     setAnswers(newAnswers);
 
-    // Check if we should show a trap after this question
     const trap = psychologicalTraps.find(
       (t) => t.afterQuestion === question.number
     );
@@ -59,7 +58,8 @@ const Quiz = () => {
   const renderQuestion = () => {
     if (question.type === 'card') {
       return (
-        <div className=\"grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6\">\n          {question.options.map((option, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+          {question.options.map((option, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -73,26 +73,26 @@ const Quiz = () => {
                   : 'hover:scale-105'
               }`}
             >
-              <div className=\"aspect-[4/3] relative\">
+              <div className="aspect-[4/3] relative">
                 <img
                   src={option.image}
                   alt={option.text}
-                  className=\"w-full h-full object-cover\"
+                  className="w-full h-full object-cover"
                 />
-                <div className=\"absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent\" />
-                <div className=\"absolute bottom-0 left-0 right-0 p-4 md:p-6 text-white\">
-                  <h3 className=\"text-xl md:text-2xl font-bold mb-1\">{option.text}</h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 text-white">
+                  <h3 className="text-xl md:text-2xl font-bold mb-1">{option.text}</h3>
                   {option.subtext && (
-                    <p className=\"text-sm md:text-base text-white/80\">{option.subtext}</p>
+                    <p className="text-sm md:text-base text-white/80">{option.subtext}</p>
                   )}
                 </div>
                 {answers[question.id] === option.value && (
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    className=\"absolute top-4 right-4 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center\"
+                    className="absolute top-4 right-4 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center"
                   >
-                    <Heart className=\"w-5 h-5 text-white fill-white\" />
+                    <Heart className="w-5 h-5 text-white fill-white" />
                   </motion.div>
                 )}
               </div>
@@ -104,7 +104,8 @@ const Quiz = () => {
 
     if (question.type === 'simple') {
       return (
-        <div className=\"space-y-3 max-w-2xl mx-auto\">\n          {question.options.map((option, index) => (
+        <div className="space-y-3 max-w-2xl mx-auto">
+          {question.options.map((option, index) => (
             <motion.button
               key={option}
               initial={{ opacity: 0, x: -20 }}
@@ -127,10 +128,13 @@ const Quiz = () => {
 
     if (question.type === 'likert') {
       return (
-        <div className=\"space-y-6 max-w-2xl mx-auto\">\n          <div className=\"flex justify-between items-center px-4 text-sm text-gray-600\">\n            <span>{question.labels[0]}</span>
+        <div className="space-y-6 max-w-2xl mx-auto">
+          <div className="flex justify-between items-center px-4 text-sm text-gray-600">
+            <span>{question.labels[0]}</span>
             <span>{question.labels[1]}</span>
           </div>
-          <div className=\"flex justify-between gap-2 md:gap-3\">\n            {question.scale.map((value, index) => (
+          <div className="flex justify-between gap-2 md:gap-3">
+            {question.scale.map((value, index) => (
               <motion.button
                 key={value}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -154,19 +158,26 @@ const Quiz = () => {
   };
 
   return (
-    <div className=\"min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-pink-100\">\n      {/* Header */}
-      <div className=\"bg-white/80 backdrop-blur-lg border-b border-gray-200 sticky top-0 z-40\">\n        <div className=\"max-w-7xl mx-auto px-4 sm:px-6 py-4\">\n          <div className=\"flex items-center justify-between mb-3\">\n            <div className=\"flex items-center space-x-3\">\n              <div className=\"w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center\">\n                <Heart className=\"w-6 h-6 text-white fill-white\" />
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-pink-100">
+      <div className="bg-white/80 backdrop-blur-lg border-b border-gray-200 sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center">
+                <Heart className="w-6 h-6 text-white fill-white" />
               </div>
-              <h1 className=\"text-xl md:text-2xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent\">\n                Bond Rizz
+              <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+                Bond Rizz
               </h1>
             </div>
-            <span className=\"text-sm font-medium text-gray-600\">\n              {currentQuestion + 1}/{totalQuestions}
+            <span className="text-sm font-medium text-gray-600">
+              {currentQuestion + 1}/{totalQuestions}
             </span>
           </div>
 
-          {/* Progress Bar */}
-          <div className=\"h-2 bg-gray-200 rounded-full overflow-hidden\">\n            <motion.div
-              className=\"h-full bg-gradient-to-r from-pink-500 to-purple-600\"
+          <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+            <motion.div
+              className="h-full bg-gradient-to-r from-pink-500 to-purple-600"
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
               transition={{ duration: 0.5 }}
@@ -175,19 +186,20 @@ const Quiz = () => {
         </div>
       </div>
 
-      {/* Question Content */}
-      <AnimatePresence mode=\"wait\">\n        {!showTrap ? (
+      <AnimatePresence mode="wait">
+        {!showTrap ? (
           <motion.div
             key={currentQuestion}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className=\"max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-12\"
+            className="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-12"
           >
-            <div className=\"text-center mb-8 md:mb-12\">\n              <motion.h2
+            <div className="text-center mb-8 md:mb-12">
+              <motion.h2
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className=\"text-3xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight\"
+                className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight"
               >
                 {question.question}
               </motion.h2>
@@ -196,13 +208,14 @@ const Quiz = () => {
             {renderQuestion()}
 
             {currentQuestion > 0 && (
-              <div className=\"mt-8 text-center\">\n                <Button
-                  variant=\"ghost\"
+              <div className="mt-8 text-center">
+                <Button
+                  variant="ghost"
                   onClick={handleBack}
-                  data-testid=\"back-button\"
-                  className=\"text-gray-600 hover:text-gray-900\"
+                  data-testid="back-button"
+                  className="text-gray-600 hover:text-gray-900"
                 >
-                  <ChevronLeft className=\"mr-2 h-5 w-5\" />
+                  <ChevronLeft className="mr-2 h-5 w-5" />
                   Back
                 </Button>
               </div>
@@ -244,7 +257,7 @@ const PsychologicalTrap = ({ trap, onContinue }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className=\"fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm\"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
       onClick={onContinue}
     >
       <motion.div
@@ -254,12 +267,14 @@ const PsychologicalTrap = ({ trap, onContinue }) => {
         onClick={(e) => e.stopPropagation()}
       >
         {trap.type === 'testimonial' && (
-          <div className=\"text-center\">\n            <img
+          <div className="text-center">
+            <img
               src={trap.content.avatar}
               alt={trap.content.author}
-              className=\"w-24 h-24 rounded-full mx-auto mb-6 border-4 border-white shadow-lg\"
+              className="w-24 h-24 rounded-full mx-auto mb-6 border-4 border-white shadow-lg"
             />
-            <p className=\"text-xl md:text-2xl font-medium text-gray-800 mb-4 leading-relaxed\">\n              \"{trap.content.quote}\"
+            <p className="text-xl md:text-2xl font-medium text-gray-800 mb-4 leading-relaxed">
+              "{trap.content.quote}"
             </p>
             <p className={`text-lg font-bold bg-gradient-to-r ${colors.accent} bg-clip-text text-transparent`}>
               - {trap.content.author}
@@ -268,27 +283,30 @@ const PsychologicalTrap = ({ trap, onContinue }) => {
         )}
 
         {trap.type === 'warning' && (
-          <div className=\"text-center\">\n            <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${colors.accent} flex items-center justify-center mx-auto mb-6 shadow-lg`}>
-              <span className=\"text-4xl\">⚠️</span>
+          <div className="text-center">
+            <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${colors.accent} flex items-center justify-center mx-auto mb-6 shadow-lg`}>
+              <span className="text-4xl">⚠️</span>
             </div>
-            <h3 className=\"text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight\">\n              {trap.content.stat}
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight">
+              {trap.content.stat}
             </h3>
-            <p className=\"text-lg text-gray-600\">{trap.content.subtext}</p>
+            <p className="text-lg text-gray-600">{trap.content.subtext}</p>
           </div>
         )}
 
         {trap.type === 'social_proof' && (
-          <div className=\"text-center\">\n            <div className={`text-6xl md:text-7xl font-bold bg-gradient-to-r ${colors.accent} bg-clip-text text-transparent mb-4`}>
+          <div className="text-center">
+            <div className={`text-6xl md:text-7xl font-bold bg-gradient-to-r ${colors.accent} bg-clip-text text-transparent mb-4`}>
               {trap.content.counter.toLocaleString()}+
             </div>
-            <p className=\"text-2xl font-semibold text-gray-900 mb-2\">{trap.content.text}</p>
-            <p className=\"text-lg text-gray-600\">{trap.content.subtext}</p>
+            <p className="text-2xl font-semibold text-gray-900 mb-2">{trap.content.text}</p>
+            <p className="text-lg text-gray-600">{trap.content.subtext}</p>
           </div>
         )}
 
         <Button
           onClick={onContinue}
-          data-testid=\"trap-continue-button\"
+          data-testid="trap-continue-button"
           className={`w-full mt-8 bg-gradient-to-r ${colors.accent} text-white font-bold py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105`}
         >
           Continue
