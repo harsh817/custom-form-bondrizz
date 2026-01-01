@@ -62,9 +62,36 @@ const Success = () => {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-          className="w-32 h-32 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center mb-8 shadow-2xl"
+          className="relative mb-8"
         >
-          <Check className="w-16 h-16 text-white" />
+          <motion.div
+            animate={{
+              rotate: [0, 360],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="w-32 h-32 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 flex items-center justify-center shadow-2xl"
+          >
+            <Check className="w-16 h-16 text-white" />
+          </motion.div>
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 180, 360]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg"
+          >
+            <Sparkles className="w-6 h-6 text-white" />
+          </motion.div>
         </motion.div>
 
         {/* Headline */}
