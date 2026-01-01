@@ -44,7 +44,7 @@ const Success = () => {
           height={height}
           recycle={false}
           numberOfPieces={500}
-          colors={['#8B5CF6', '#D946EF', '#10B981', '#F59E0B']}
+          colors={['#ec4899', '#a855f7', '#10B981', '#F59E0B']}
         />
       )}
 
