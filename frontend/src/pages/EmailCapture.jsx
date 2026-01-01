@@ -50,7 +50,7 @@ const EmailCapture = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-pink-100 flex items-center justify-center px-4 relative overflow-hidden">
+    <div className="min-h-screen premium-gradient-bg grain-overlay flex items-center justify-center px-4 relative">
       {/* Floating Orbs */}
       <div className="floating-orb floating-orb-1" />
       <div className="floating-orb floating-orb-2" />
@@ -59,23 +59,23 @@ const EmailCapture = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="bg-white/90 backdrop-blur-xl max-w-lg w-full p-8 md:p-12 rounded-3xl shadow-2xl relative z-10 border border-white/20"
+        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+        className="glass-effect max-w-lg w-full p-8 md:p-12 rounded-3xl premium-shadow-lg relative z-10"
       >
         <div className="text-center mb-8">
           <motion.div 
-            initial={{ scale: 0 }}
+            initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="w-20 h-20 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl"
+            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+            className="w-20 h-20 bg-gradient-to-br from-pink-400 to-violet-500 rounded-full flex items-center justify-center mx-auto mb-6 premium-shadow-lg icon-glow"
           >
-            <Mail className="w-10 h-10 text-white" />
+            <Mail className="w-10 h-10 text-white" strokeWidth={2.5} />
           </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-3"
+            className="text-3xl md:text-4xl font-bold gradient-text mb-3"
           >
             Enter Your Email
           </motion.h1>
@@ -83,14 +83,14 @@ const EmailCapture = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-gray-600 text-lg"
+            className="text-gray-600 text-base md:text-lg"
           >
             Your personalized Rizz Score report is ready
           </motion.p>
         </div>
 
         <motion.form 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
           onSubmit={handleSubmit} 
@@ -104,37 +104,32 @@ const EmailCapture = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               data-testid="email-input"
-              className="bg-white border-2 border-gray-200 text-gray-900 text-lg py-6 pl-12 pr-4 rounded-2xl focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
+              className="glass-effect text-gray-900 text-base md:text-lg py-5 pl-12 pr-4 rounded-2xl border-0 focus:ring-2 focus:ring-pink-400 transition-all premium-shadow"
             />
           </div>
 
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+          <Button
+            type="submit"
+            disabled={loading}
+            data-testid="submit-email-button"
+            className="w-full bg-gradient-to-r from-pink-400 to-violet-500 text-white font-bold py-5 text-base md:text-lg rounded-full premium-shadow-lg hover:shadow-xl transition-all magnetic-hover disabled:opacity-50"
           >
-            <Button
-              type="submit"
-              disabled={loading}
-              data-testid="submit-email-button"
-              className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold py-6 text-lg rounded-full shadow-lg hover:shadow-2xl transition-all hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading ? (
-                <span className="flex items-center justify-center">
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                    className="w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2"
-                  />
-                  Sending...
-                </span>
-              ) : (
-                <span className="flex items-center justify-center">
-                  <Zap className="w-5 h-5 mr-2" />
-                  See My Results
-                </span>
-              )}
-            </Button>
-          </motion.div>
+            {loading ? (
+              <span className="flex items-center justify-center">
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                  className="w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2"
+                />
+                Sending...
+              </span>
+            ) : (
+              <span className="flex items-center justify-center">
+                <Zap className="w-5 h-5 mr-2" strokeWidth={2.5} />
+                See My Results
+              </span>
+            )}
+          </Button>
         </motion.form>
 
         <motion.div 
@@ -149,21 +144,15 @@ const EmailCapture = () => {
           </div>
 
           {/* Trust badges */}
-          <div className="flex items-center justify-center space-x-6">
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              className="flex items-center space-x-2 text-xs text-gray-500 bg-white/50 px-3 py-2 rounded-full"
-            >
-              <Shield className="w-4 h-4 text-green-500" />
-              <span>Secure</span>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              className="flex items-center space-x-2 text-xs text-gray-500 bg-white/50 px-3 py-2 rounded-full"
-            >
-              <Heart className="w-4 h-4 text-pink-500" />
-              <span>Trusted</span>
-            </motion.div>
+          <div className="flex items-center justify-center space-x-4">
+            <div className="flex items-center space-x-2 text-xs text-gray-500 glass-effect px-3 py-2 rounded-full premium-shadow">
+              <Shield className="w-4 h-4 text-green-500" strokeWidth={2.5} />
+              <span className="font-medium">Secure</span>
+            </div>
+            <div className="flex items-center space-x-2 text-xs text-gray-500 glass-effect px-3 py-2 rounded-full premium-shadow">
+              <Heart className="w-4 h-4 text-pink-500 fill-pink-500" strokeWidth={2.5} />
+              <span className="font-medium">Trusted</span>
+            </div>
           </div>
         </motion.div>
       </motion.div>
