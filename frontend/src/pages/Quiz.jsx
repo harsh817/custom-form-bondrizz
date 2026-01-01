@@ -104,7 +104,7 @@ const Quiz = () => {
 
     if (question.type === 'simple') {
       return (
-        <div className="space-y-3 max-w-2xl mx-auto">
+        <div className="space-y-4 max-w-2xl mx-auto">
           {question.options.map((option, index) => (
             <motion.button
               key={option}
@@ -113,10 +113,10 @@ const Quiz = () => {
               transition={{ delay: index * 0.1 }}
               onClick={() => handleAnswer(option)}
               data-testid={`quiz-option-${index}`}
-              className={`w-full p-5 rounded-2xl text-left font-medium transition-all duration-300 ${
+              className={`w-full p-6 rounded-3xl text-left text-lg font-semibold transition-all duration-300 ${
                 answers[question.id] === option
-                  ? 'bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-lg scale-105'
-                  : 'bg-white text-gray-800 hover:bg-pink-50 hover:scale-102 shadow-md'
+                  ? 'bg-gradient-to-r from-pink-600 to-purple-700 text-white shadow-xl scale-105 ring-4 ring-pink-300'
+                  : 'bg-white text-gray-800 hover:bg-pink-400 hover:text-white hover:scale-102 hover:shadow-lg shadow-md'
               }`}
             >
               {option}
