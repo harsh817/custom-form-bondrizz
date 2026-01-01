@@ -1,11 +1,11 @@
 import React from 'react';
 import '@/App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Quiz from './pages/Quiz';
-import Loading from './pages/Loading';
-import EmailCapture from './pages/EmailCapture';
-import Results from './pages/Results';
-import Success from './pages/Success';
+import Quiz from './pages/Quiz.jsx';
+import Loading from './pages/Loading.jsx';
+import EmailCapture from './pages/EmailCapture.jsx';
+import Results from './pages/Results.jsx';
+import Success from './pages/Success.jsx';
 
 function App() {
   return (
