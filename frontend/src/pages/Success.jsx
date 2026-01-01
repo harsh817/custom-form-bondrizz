@@ -48,6 +48,11 @@ const Success = () => {
         />
       )}
 
+      {/* Floating Orbs */}
+      <div className="floating-orb floating-orb-1" />
+      <div className="floating-orb floating-orb-2" />
+      <div className="floating-orb floating-orb-3" />
+
       {/* Animated background */}
       <div className="animated-gradient absolute inset-0 pointer-events-none" />
 
