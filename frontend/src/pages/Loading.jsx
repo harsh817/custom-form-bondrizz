@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { Check, Heart } from 'lucide-react';
 import axios from 'axios';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -48,7 +48,6 @@ const Loading = () => {
 
     submitQuiz();
 
-    // Animate through steps
     const stepInterval = setInterval(() => {
       setCurrentStep((prev) => {
         if (prev < steps.length - 1) {
@@ -58,7 +57,6 @@ const Loading = () => {
       });
     }, 3000);
 
-    // Navigate after 15 seconds
     const navigateTimeout = setTimeout(() => {
       navigate('/email');
     }, 15000);
@@ -70,28 +68,36 @@ const Loading = () => {
   }, [navigate, steps.length]);
 
   return (
-    <div className="min-h-screen bg-[#050505] flex items-center justify-center px-6 relative overflow-hidden">
-      {/* Animated background */}
-      <div className="animated-gradient absolute inset-0 pointer-events-none" />
-
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-pink-100 flex items-center justify-center px-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="relative z-10 max-w-md w-full glass-card p-12 rounded-2xl text-center"
+        className="bg-white/90 backdrop-blur-lg max-w-lg w-full p-8 md:p-12 rounded-3xl shadow-2xl text-center"
       >
-        {/* Spinner */}
-        <div className="flex justify-center mb-8">
-          <div className="spinner" />
-        </div>
+        {/* Animated Heart Icon */}
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 10, -10, 0]
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }}
+          className="w-20 h-20 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6"
+        >
+          <Heart className="w-10 h-10 text-white fill-white" />
+        </motion.div>
 
         {/* Headline */}
-        <h1 className="text-3xl font-bold mb-3 gradient-text">
+        <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-3">
           Analyzing Your Rizz Profile...
         </h1>
-        <p className="text-zinc-400 mb-8">This will only take a moment</p>
+        <p className="text-gray-600 mb-8">This will only take a moment</p>
 
         {/* Checklist */}
-        <div className="space-y-4">
+        <div className="space-y-4 text-left">
           {steps.map((step, index) => (
             <motion.div
               key={step}
@@ -101,13 +107,13 @@ const Loading = () => {
                 x: 0
               }}
               transition={{ delay: index * 0.5 }}
-              className="flex items-center space-x-3 text-left"
+              className="flex items-center space-x-3"
             >
               <div
-                className={`w-6 h-6 rounded-full flex items-center justify-center transition-all ${
+                className={`w-7 h-7 rounded-full flex items-center justify-center transition-all ${
                   index <= currentStep
-                    ? 'bg-gradient-to-r from-violet-500 to-fuchsia-500'
-                    : 'bg-zinc-800'
+                    ? 'bg-gradient-to-r from-pink-500 to-purple-600'
+                    : 'bg-gray-200'
                 }`}
               >
                 {index <= currentStep && (
@@ -115,8 +121,8 @@ const Loading = () => {
                 )}
               </div>
               <span
-                className={`transition-colors ${
-                  index <= currentStep ? 'text-white' : 'text-zinc-600'
+                className={`transition-colors text-base ${
+                  index <= currentStep ? 'text-gray-900 font-medium' : 'text-gray-400'
                 }`}
               >
                 {step}
