@@ -1,53 +1,31 @@
 /* Minimal app-specific styles */
 .App {
   min-height: 100vh;
-  background: #050505;
+  background: linear-gradient(135deg, #fdf2f8 0%, #fae8ff 50%, #fdf2f8 100%);
 }
 
 /* Gradient text utility */
 .gradient-text {
-  background: linear-gradient(135deg, #8B5CF6 0%, #D946EF 100%);
+  background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glow effect */
-.glow-violet {
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+/* Card hover effect */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.glow-violet:hover {
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
-}
-
-/* Glass morphism card */
-.glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-}
-
-/* Animated gradient background */
-.animated-gradient {
-  background: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.3) 0%, rgba(5, 5, 5, 0) 70%);
-  animation: pulse-glow 4s ease-in-out infinite;
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    opacity: 0.8;
-  }
-  50% {
-    opacity: 1;
-  }
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* Loading spinner */
 .spinner {
-  border: 3px solid rgba(139, 92, 246, 0.2);
-  border-top-color: #8B5CF6;
+  border: 3px solid rgba(236, 72, 153, 0.2);
+  border-top-color: #ec4899;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -58,4 +36,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
